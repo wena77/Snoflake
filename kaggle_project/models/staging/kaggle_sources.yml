@@ -1,0 +1,156 @@
+sources:
+  - database: kaggle
+    description: raw kaggle
+    name: kaggle
+    schema: raw
+    tables:
+      - columns:
+          - name: mql_id
+            tests:
+              - unique
+              - not_null
+          - name: first_contact_date
+          - name: landing_page_id
+            tests:
+              - unique
+              - not_null
+          - name: origin
+        name: marketing_qualified_leads_raw
+      - columns:
+          - name: mql_id
+            tests:
+              - unique
+              - not_null
+          - name: seller_id
+            tests:
+              - unique
+              - not_null
+          - name: sdr_id
+            tests:
+              - unique
+              - not_null
+          - name: sr_id
+            tests:
+              - unique
+              - not_null
+          - name: won_date
+          - name: business_segment
+          - name: lead_type
+          - name: lead_behaviour_profile
+          - name: has_company
+          - name: has_gtin
+          - name: average_stock
+          - name: business_type
+          - name: declared_product_catalog_size
+          - name: declared_monthly_revenue
+        name: closed_deals_raw
+      - columns:
+          - name: customer_id
+            tests:
+              - unique
+              - not_null
+          - name: customer_unique_id
+            tests:
+              - unique
+              - not_null
+          - name: customer_zip_code_prefix
+          - name: customer_city
+          - name: customer_state
+        name: customers_raw
+      - columns:
+          - name: product_id
+            tests:
+              - unique
+              - not_null
+          - name: product_category_name
+          - name: product_name_lenght
+          - name: product_description_lenght
+          - name: product_photos_qty
+          - name: product_weight_g
+          - name: product_length_cm
+          - name: product_height_cm
+          - name: product_width_cm
+        name: products_raw
+      - columns:
+          - name: geolocation_zip_code_prefix
+          - name: geolocation_lat
+          - name: geolocation_lng
+          - name: geolocation_city
+          - name: geolocation_state
+        name: geolocation_raw
+      - columns:
+          - name: order_id
+            tests:
+              - unique
+              - not_null
+          - name: order_item_id
+            tests:
+              - unique
+              - not_null
+          - name: product_id
+            tests:
+              - unique
+              - not_null
+          - name: seller_id
+            tests:
+              - unique
+              - not_null
+          - name: shipping_limit_date
+          - name: price
+          - name: freight_value
+        name: order_items_raw
+      - columns:
+          - name: review_id
+            tests:
+              - unique
+              - not_null
+          - name: order_id
+            tests:
+              - unique
+              - not_null
+          - name: review_score
+          - name: review_comment_title
+          - name: review_comment_message
+          - name: review_creation_date
+          - name: review_answer_timestamp
+        name: order_reviews_raw
+      - columns:
+          - name: product_category_name
+          - name: product_category_name_english
+        name: product_category_name_translation_raw
+      - columns:
+          - name: order_id
+            tests:
+              - unique
+              - not_null
+          - name: customer_id
+            tests:
+              - unique
+              - not_null
+          - name: order_status
+          - name: order_purchase_timestamp
+          - name: order_approved_at
+          - name: order_delivered_carrier_date
+          - name: order_delivered_customer_date
+          - name: order_estimated_delivery_date
+        name: orders_raw
+      - columns:
+          - name: order_id
+            tests:
+              - unique
+              - not_null
+          - name: payment_sequential
+          - name: payment_type
+          - name: payment_installments
+          - name: payment_value
+        name: order_payments_raw
+      - columns:
+          - name: seller_id
+            tests:
+              - unique
+              - not_null
+          - name: seller_zip_code_prefix
+          - name: seller_city
+          - name: seller_state
+        name: sellers_raw
+version: 2
