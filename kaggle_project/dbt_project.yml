@@ -38,3 +38,6 @@ models:
     dwh:
       +materialized: table
       +schema: edw
+    mart:
+      +materialized: view
+      +schema: mart

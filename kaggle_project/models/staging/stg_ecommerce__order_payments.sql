@@ -3,7 +3,7 @@ with source as (select *
 
      prepared as (SELECT order_id                                   as order_id,
                          cast(payment_sequential as number(2, 0))   as payment_sequential,
-                         payment_type                               as payment_type,
+                         replace(payment_type, '_', ' ')            as payment_type,
                          cast(payment_installments as number(2, 0)) as payment_installments,
                          cast(payment_value as double)              as payment_value
                   FROM source)

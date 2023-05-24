@@ -6,7 +6,7 @@
   {% set csv_file = file + '.csv' %}
   {% set query %}
      BEGIN;
-     COPY INTO {{table_name}} FROM @{{ source }}/{{ csv_file }} FILE_FORMAT = (TYPE = CSV FIELD_DELIMITER = ',' SKIP_HEADER = 1);
+     COPY INTO {{table_name}} FROM @{{ source }}/{{ csv_file }} FILE_FORMAT = (TYPE = CSV FIELD_DELIMITER = ','  FIELD_OPTIONALLY_ENCLOSED_BY='"' SKIP_HEADER = 1);
      COMMIT;
   {% endset %}
 
